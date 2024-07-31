@@ -1,0 +1,254 @@
+Function clearInputBuffer():
+    Clear the input buffer of cin.
+    Ignore all characters up to and including the newline character.
+
+Function LinearSearch(row, search_data):
+    For each element i in the range from 0 to the size of row:
+        If row[i] is equal to search_data:
+            Return i
+    Return -1
+
+Class Player:
+    Data members:
+        name
+        player_id
+        role
+        cap (initialized to "N")
+        status (initialized to "Active")
+        jersey_number
+    
+    Constructor Player(name, role, jersey_number, player_id):
+        Initialize name, role, jersey_number, and player_id with the provided values.
+
+    Method addDetailsToFile():
+        Open a file named "player_records.csv" in append mode.
+        Write the player's name, role, cap, status, jersey_number, and player_id to the file.
+        Close the file.
+
+    Method Player_Status(status):
+        Set the status attribute to the provided status.
+
+    Method showDetails():
+        Print the player's name, role, status, jersey_number, and player_id.
+
+Class Team:
+    Data members:
+        team_id
+        team_password
+        name
+    
+    Constructor Team(name, team_id, team_password):
+        Initialize name, team_id, and team_password with the provided values.
+
+    Method addDetailsToFile():
+        Open a file named "team_user.csv" in append mode.
+        Write the team's name, team_id, and team_password to the file.
+        Close the file.
+
+    Method showDetails():
+        Print the team's name, team_id, and team_password.
+
+Class Fixture:
+    Data members:
+        TeamA
+        TeamB
+        date
+        time
+        day
+        stadium_name
+    
+    Constructor Fixture(TeamA, TeamB, date, time, day, stadium_name):
+        Initialize TeamA, TeamB, date, time, day, and stadium_name with the provided values.
+
+    Method addDetailsToFile():
+        Open a file named "Fixtures.csv" in append mode.
+        Write TeamA, TeamB, date, time, day, and stadium_name to the file.
+        Close the file.
+
+    Method showDetails():
+        Print the fixture details.
+
+Class Stadium:
+    Data members:
+        name
+        capacity
+        stadium_id
+        city
+        state
+        Hotel1
+        Hotel2
+    
+    Constructor Stadium(name, capacity, stadium_id, city, state, Hotel1, Hotel2):
+        Initialize name, capacity, stadium_id, city, state, Hotel1, and Hotel2 with the provided values.
+
+    Method addDetailsToFile():
+        Open a file named "Stadium_List.csv" in append mode.
+        Write name, capacity, stadium_id, city, state, Hotel1, and Hotel2 to the file.
+        Close the file.
+
+    Method showDetails():
+        Print stadium details.
+
+Function showUpcomingMatches(team_id):
+    Open a file named "fixtures.csv".
+    For each line in the file:
+        Parse the line into TeamA, TeamB, date, time, day, and stadium_name.
+        If TeamA or TeamB matches the provided team_id:
+            Create a Fixture object and show its details.
+    Close the file.
+
+Function PlayingXIAndSquadFetcher(team_id, file_name):
+    Open the file named file_name for reading.
+    For each line in the file:
+        Parse the line into a row.
+        If row's first element (team_id) matches the provided team_id:
+            Close the file and return the row.
+    Close the file.
+    Return a default value if not found.
+
+Function showPlayerDetails(player_list):
+    Open a file named "player_records.csv".
+    For each line in the file:
+        Parse the line into name, role, cap, status, jersey_number, and player_id.
+        If the player_id is in the player_list, create a Player object and show its details.
+    Close the file.
+
+Function modifyDetailsInTeams(file_name, team_id):
+    Clear the input buffer.
+    Prompt for current_player and new_player player IDs.
+    Open the file named file_name for reading.
+    Read all lines and store them in a vector called lines.
+    Close the file.
+    Open the file named file_name for writing.
+    For each line in lines:
+        Parse the line into row.
+        If the team_id does not match or current_player is not in the row, write the line as is.
+        Otherwise, replace current_player with new_player and write the updated row.
+    Close the file.
+
+Class PlayingXI:
+    Data member:
+        player_list
+
+    Constructor PlayingXI(player_list):
+        Initialize the player_list with the provided list.
+
+    Method addDetailsToFile():
+        Open a file named "PlayingXI.csv" in append mode.
+        Write the player_list to the file.
+        Close the file.
+
+    Method showDetails():
+        Show the details of players in the player_list.
+
+Class Squad:
+    Data member:
+        player_list
+
+    Constructor Squad(player_list):
+        Initialize the player_list with the provided list.
+
+    Method addDetailsToFile():
+        Open a file named "Squad.csv" in append mode.
+        Write the player_list to the file.
+        Close the file.
+
+    Method showDetails():
+        Show the details of players in the player_list.
+
+Function showPlayers():
+    Open a file named "player_records.csv".
+    For each line in the file:
+        Parse the line into name, role, cap, status, jersey_number, and player_id.
+        Create a Player object and show its details.
+    Close the file.
+
+Function showVenues():
+    Open a file named "Stadium.csv".
+    For each line in the file:
+        Parse the line into name, capacity, stadium_id, city, state, Hotel1, and Hotel2.
+        Create a Stadium object and show its details.
+    Close the file.
+
+Function showTeams():
+    Open a file named "team_user.csv".
+    For each line in the file:
+        Parse the line into name, team_id, and team_password.
+        Create a Team object and show its details.
+    Close the file.
+
+Function showMatches():
+    Open a file named "fixtures.csv".
+    For each line in the file:
+        Parse the line into TeamA, TeamB, date, time, day, and stadium_name.
+        Create a Fixture object and show its details.
+    Close the file.
+
+Function addTeam():
+    Clear the input buffer.
+    Prompt for the team's name, team_id, and team_password.
+    Create a Team object and add its details to the file.
+
+Function addPlayer():
+    Clear the input buffer.
+    Prompt for the player's name, player_id, role, and jersey_number.
+    Create a Player object and add its details to the file.
+
+Function addVenue():
+    Clear the input buffer.
+    Prompt for the stadium's name, capacity, stadium_id, city, state, Hotel1, and Hotel2.
+    Create a Stadium object and add its details to the file.
+
+Function addMatch():
+    Clear the input buffer.
+    Prompt for TeamA, TeamB, date, time, and stadium_name.
+    Create a Fixture object and add its details to the file.
+
+Class Admin_User:
+    Data members:
+        name
+        password
+
+    Constructor Admin_User(name, password):
+        Initialize name and password with the provided values.
+
+Function teamLoginMenu(login_id):
+    Open the file "team_user.csv" to retrieve team details using login_id.
+    Create a Team object based on the retrieved details.
+    In a loop:
+        Display a menu for team operations.
+        Depending on the user's choice, perform actions such as viewing squad, Playing XI, changing Playing XI, viewing matches, or viewing venues.
+
+Function adminLoginMenu():
+    In a loop:
+        Display a menu for admin operations.
+        Depending on the user's choice, perform actions such as viewing players, venues, teams, matches, adding players, adding teams, adding venues, or scheduling matches.
+
+Function adminLoginVerifier(login_id, password):
+    Open the file "admin_user.csv".
+    Check if the provided login_id and password match any of the entries.
+    Return true if found; otherwise, return false.
+
+Function teamLoginVerifier(login_id, password):
+    Open the file "team_user.csv".
+    Check if the provided login_id and password match any of the entries.
+    Return true if found; otherwise, return false.
+
+Function team_login():
+    Clear the input buffer.
+    Prompt for login_id and password.
+    Verify the credentials using teamLoginVerifier.
+    If valid, call teamLoginMenu with the login_id.
+    Otherwise, display an error message and return to the main menu.
+
+Function admin_login():
+    Clear the input buffer.
+    Prompt for login_id and password.
+    Verify the credentials using adminLoginVerifier.
+    If valid, call adminLoginMenu.
+    Otherwise, display an error message and return to the main menu.
+
+Function main():
+    In a loop:
+        Display the main menu with options for team login, admin login, and exit.
+        Based on the user's choice, call team_login, admin_login, or exit the program.
